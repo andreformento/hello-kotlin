@@ -1,0 +1,20 @@
+spring:
+  r2dbc:
+    url: "r2dbc:postgresql://localhost:5432/mydb"
+    username: "user"
+    password: "password"
+  security.oauth2.client.registration:
+    google:
+      client-id: ${GOOGLE_CLIENT_ID}
+      client-secret: ${GOOGLE_CLIENT_SECRET}
+
+management:
+  endpoints.web.exposure.include: "health,prometheus"
+  endpoint.health.group:
+    liveness.include: "ping,health"
+    readiness.include: "postgres"
+
+security:
+  key:
+    private: "MHgCAQEEIQCf6U4hQm7A/0qllj+QU1KW7hWwKBwGQb6uua0OGXzi16AKBggqhkjOPQMBB6FEA0IABEHoGx6/lY/4rUtCE4iXIFq/R9U+tAZWELvVfYSsr2i1Wy0RZ8IclVwkMa/5+xLi2WOuTpbYi0XqfUs/EO6hXP8="
+    public: "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEHoGx6/lY/4rUtCE4iXIFq/R9U+tAZWELvVfYSsr2i1Wy0RZ8IclVwkMa/5+xLi2WOuTpbYi0XqfUs/EO6hXP8="
